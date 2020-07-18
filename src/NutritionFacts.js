@@ -7,7 +7,7 @@ const numberPercentageShape = PropTypes.shape({
   percentage: PropTypes.number,
 });
 
-const NutritionFacts = ({ productName, servingSize }) => (
+const NutritionFacts = ({ productName, servingSize, calories, fat, cholesterol, sodium }) => (
   <div>
     <Container>
       <Row>
@@ -20,6 +20,39 @@ const NutritionFacts = ({ productName, servingSize }) => (
         <Col>
           {servingSize.amount} {servingSize.dimension}
         </Col>
+      </Row>
+      <Row>
+        <Col>Calories:</Col>
+        <Col>{calories}</Col>
+      </Row>
+      <Row>
+        <Col className="float-left text-nowrap">
+          <h3>Fat</h3>
+        </Col>
+      </Row>
+      <Row>
+        <Col>Saturated</Col>
+        <Col>{fat.saturated.number}</Col>
+        <Col>({fat.saturated.percentage} %)</Col>
+      </Row>
+      <Row>
+        <Col>Trans</Col>
+        <Col>{fat.trans}</Col>
+      </Row>
+      <Row>
+        <Col>Total</Col>
+        <Col>{fat.total.number}</Col>
+        <Col>({fat.total.percentage} %)</Col>
+      </Row>
+      <Row>
+        <Col>Cholesterol</Col>
+        <Col>{cholesterol.number}</Col>
+        <Col>({cholesterol.percentage} %)</Col>
+      </Row>
+      <Row>
+        <Col>Sodium</Col>
+        <Col>{sodium.number}</Col>
+        <Col>({sodium.percentage} %)</Col>
       </Row>
     </Container>
   </div>
